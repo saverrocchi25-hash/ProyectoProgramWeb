@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Juegos (CRUD)</title>
+</head>
+<body>
+    <header>
+        <h1>Catálogo de Juegos</h1>
+    </header>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <section class="form-section">
+            <form id="game-form">
+                <fieldset>
+                    <legend>Datos del Juego</legend>
+                    
+                    <input type="hidden" id="game-id">
+
+                    <div class="form-group">
+                        <label for="name">Nombre del Juego:</label>
+                        <input type="text" id="name" name="name" required placeholder="Ej. Ajedrez">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="minPlayers">Mínimo de Jugadores:</label>
+                            <input type="number" id="minPlayers" name="minPlayers" required min="1" placeholder="Ej. 2">
+                        </div>
+                        <div class="form-group">
+                            <label for="maxPlayers">Máximo de Jugadores:</label>
+                            <input type="number" id="maxPlayers" name="maxPlayers" required min="1" placeholder="Ej. 2">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="duration">Duración (minutos):</label>
+                            <input type="number" id="duration" name="duration" required min="1" placeholder="Ej. 30">
+                        </div>
+                        <div class="form-group">
+                            <label for="acquisitionDate">Fecha de Adquisición:</label>
+                            <input type="date" id="acquisitionDate" name="acquisitionDate" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="status">Estado:</label>
+                        <select id="status" name="status" required>
+                            <option value="">Selecciona un estado</option>
+                            <option value="Nuevo">Nuevo</option>
+                            <option value="Usado">Usado</option>
+                            <option value="Dañado">Dañado</option>
+                        </select>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" id="submit-btn">Guardar Juego</button>
+                        <button type="button" id="cancel-btn" class="hidden">Cancelar Edición</button>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+
+        <section class="data-section">
+            <h2>Lista de Juegos</h2>
+            <div class="search-section">
+        <fieldset>
+            <legend>Buscar Juego por ID</legend>
+            <div class="search-form">
+                <input type="number" id="search-id" placeholder="Ingresa el ID del juego" min="1">
+                <button type="button" id="search-btn">Buscar</button>
+            </div>
+            <div id="search-result"></div>
+        </fieldset>
+    </div>
+    
+            <div class="table-container">
+                <table id="games-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Min Jugadores</th>
+                            <th>Max Jugadores</th>
+                            <th>Duración (min)</th>
+                            <th>Fecha Adquisición</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="games-tbody">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

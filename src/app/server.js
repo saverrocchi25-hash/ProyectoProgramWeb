@@ -18,6 +18,7 @@ app.use (
     })
 );
 app.use(helmet());
+app.use(express.static('public'));
 
 
 //ROUTES

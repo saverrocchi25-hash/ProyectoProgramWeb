@@ -3,6 +3,6 @@ import gamesRouter from '../modules/games/games.routes.js'; // Agregamos la ruta
 
 const indexRouter = Router();
 
-indexRouter.use("/games", gamesRouter); // Agregamos el endpoint base de games
+indexRouter.use("/games", gamesRouter); 
 
 export default indexRouter;
